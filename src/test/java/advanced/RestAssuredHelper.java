@@ -1,10 +1,12 @@
 package advanced;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 
 import java.util.Map;
@@ -14,10 +16,22 @@ import static io.restassured.RestAssured.given;
 
 public class RestAssuredHelper {
 
+    private static final Logger logger = LogManager.getLogger(RestAssuredHelper.class);
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+
     public static <T> Response sendHttpRequest(HttpMethod httpMethod, String endpoint,
                                                String token, Map<String, String> headers,
                                                Map<String, ?> queryParams, Object requestBody,
                                                HttpStatus expectedStatusCode, Class<T> responseClass) {
+
+        String jsonRequestBody;
+        try {
+            jsonRequestBody = objectMapper.writeValueAsString(requestBody);
+        } catch (JsonProcessingException e) {
+            jsonRequestBody = "{}"; // Return an empty object in case of error
+        }
+        String configurationMessage = String.format("Endpoint: %s, Method: %s, Headers: %s, Params: %s, Body: %s", endpoint, httpMethod, headers, queryParams, jsonRequestBody);
 
         if (requestBody == null) {
             requestBody = Map.of();
@@ -44,26 +58,38 @@ public class RestAssuredHelper {
                     .body(requestBody)
                     .when()
                     .put();
-            default -> throw new IllegalArgumentException("Unsupported HTTP method: " + httpMethod);
+            default -> {
+                String message = "Unsupported HTTP method: " + httpMethod;
+                logger.error("{} --> {}", configurationMessage, message);
+                throw new IllegalArgumentException(message);
+            }
         };
 
         if (response.getStatusCode() != expectedStatusCode.value()) {
-            throw new RuntimeException("Expected status code " + expectedStatusCode +
-                    " but got " + response.getStatusCode() + "\nResponse body: " + response.getBody().asString());
+            String message = "Expected status code " + expectedStatusCode +
+                    " but got " + response.getStatusCode() + "\tResponse body: " + response.getBody().asString();
+            logger.error("{} --> {}", configurationMessage, message);
+            throw new RuntimeException(message);
         }
-
-        if (responseClass != null) {
-            try {
-                String responseBody = response.getBody().asString();
-                ObjectMapper objectMapper = new ObjectMapper();
-                T responseObject = objectMapper.readValue(responseBody, responseClass);
-            } catch (Exception e) {
-                throw new RuntimeException("Failed to parse JSON response into " + responseClass.getSimpleName(), e);
+        String responseBody = response.getBody().asString();
+        try {
+            if (responseClass == null && !responseBody.isEmpty()) {
+                throw new RuntimeException();
+            } else if (responseClass != null) {
+                objectMapper.readValue(responseBody, responseClass);
             }
+        } catch (Exception e) {
+            String responseClassName = responseClass == null ? "null" : responseClass.getSimpleName();
+            String message = "Failed to parse JSON response into " + responseClassName;
+            logger.error("{} --> {}", configurationMessage, message);
+            throw new RuntimeException(message);
         }
+        if (responseBody.isEmpty()) {
+            responseBody = "{}";
+        }
+        logger.info("{} --> {}", configurationMessage, responseBody);
         return response;
     }
-
 
     private static RequestSpecification givenRequestSpec(String endpoint,
                                                          String token,
@@ -76,32 +102,13 @@ public class RestAssuredHelper {
         if (token != null) {
             requestSpec.header("Authorization", "Bearer " + token);
         }
-
         if (headers != null) {
             headers.forEach(requestSpec::header);
         }
-
         if (queryParams != null) {
             requestSpec.queryParams(queryParams);
         }
-
         return requestSpec;
     }
-
-//    public static void main(String[] args) {
-//        // Example usage:
-//        String token = "your_auth_token_here";
-//        String endpoint = "https://api.example.com/delete";
-//        int expectedStatusCode = 200;
-//
-//        // Example DELETE request
-//        Response deleteResponse = sendHttpRequest("DELETE", endpoint, token, null, null, null, expectedStatusCode);
-//
-//        // Handling the response
-//        int statusCode = deleteResponse.statusCode();
-//        System.out.println("Status code: " + statusCode);
-//        String responseBody = deleteResponse.getBody().asString();
-//        System.out.println("Response body: " + responseBody);
-//    }
 }
 

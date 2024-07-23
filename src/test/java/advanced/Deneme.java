@@ -9,6 +9,8 @@ import testWithToken.AuthUserRequest;
 import testWithToken.CreateUserRequest;
 import testWithToken.NameLastnameResponse;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class Deneme {
@@ -24,16 +26,19 @@ public class Deneme {
         CreateUserRequest createUserRequest = new CreateUserRequest(
                 "randomString",
                 "randomString",
-                "randoemString" + "@gmail.com",
+                "randoemStrisnsssttxxgs" + "@gmail.com",
                 "123",
                 "Male",
                 Set.of("ROLE_USER")
         );
-        Response a  = RestAssuredHelper.sendHttpRequest(
-            HttpMethod.POST,
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("Accept", "application/json");
+        Response a = RestAssuredHelper.sendHttpRequest(
+                HttpMethod.POST,
                 baseURI + "/user/getNameLastname",
-                "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLdnI5REFDMHBwM1U3Wm12YlE1VHV3PT0iLCJpYXQiOjE3MjE2NDc1NjMsImV4cCI6MTcyMTY1NjU2M30.C3AIae2GEv9lnsFHTlo5qnSHsobwu7Woeic5g8zDL7g",
-                null,
+                "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLdnI5REFDMHBwM1U3Wm12YlE1VHV3PT0iLCJpYXQiOjE3MjE3MjAyMzcsImV4cCI6MTcyMTcyOTIzN30.f4Vuyib8ZBBCT0CCrYYz64CtTlg6dboNMifykGwu4jA",
+                headers,
                 null,
                 null,
                 HttpStatus.OK,
