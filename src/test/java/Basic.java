@@ -1,6 +1,7 @@
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
 
 import java.text.DecimalFormat;
@@ -34,7 +35,6 @@ public class Basic {
         // Log the content in the response body
         System.out.println("Get All Response Body:");
         System.out.println(response.getBody().asString());
-
     }
 
     @Test
