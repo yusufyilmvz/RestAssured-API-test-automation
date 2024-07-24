@@ -3,7 +3,7 @@ package testWithToken;
 public class RandomString {
 
     // function to generate a random string of length n
-    static String getAlphaNumericString(int n) {
+    public static String getAlphaNumericString(int n) {
 
         // choose a Character random from this String
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

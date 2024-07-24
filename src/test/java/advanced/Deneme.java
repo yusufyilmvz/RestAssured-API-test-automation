@@ -6,19 +6,21 @@ import io.qameta.allure.Story;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.http.HttpStatus;
-import testWithToken.CreateUserRequest;
-import testWithToken.NameLastnameResponse;
+import testWithToken.*;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 @Feature("API Tests")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Deneme {
     private String baseURI = "http://localhost:8082";
+    private static String token;
 
     @BeforeEach
     public void setup() {
@@ -34,16 +36,18 @@ public class Deneme {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
-        Response a = RestAssuredHelper.sendHttpRequest(
-                HttpMethod.POST,
-                baseURI + "/user/getNameLastname",
-                "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLdnI5REFDMHBwM1U3Wm12YlE1VHV3PT0iLCJpYXQiOjE3MjE4MDUxNTcsImV4cCI6MTcyMTgxNDE1N30.rwG015kfX3C50EvhW0s71R56jK8aPR6k8-opccfrc4U",
-                headers,
-                null,
-                null,
-                HttpStatus.OK,
-                NameLastnameResponse.class
-        );
+        assertDoesNotThrow(() -> {
+            Response a = RestAssuredHelper.sendHttpRequest(
+                    HttpMethod.POST,
+                    baseURI + "/user/getNameLastname",
+                    token,
+                    headers,
+                    null,
+                    null,
+                    HttpStatus.OK,
+                    NameLastnameResponse.class
+            );
+        });
     }
 
 
@@ -52,10 +56,11 @@ public class Deneme {
     @Description("Validate Register request functionality without JWT token")
     public void testWithoutToken() {
 
+        String randomString = RandomString.getAlphaNumericString(5);
         CreateUserRequest createUserRequest = new CreateUserRequest(
-                "randomString",
-                "randomString",
-                "randaaaoemStrisnssssssttxxgs" + "@gmail.com",
+                randomString,
+                randomString,
+                randomString + "@gmail.com",
                 "123",
                 "Male",
                 Set.of("ROLE_USER")
@@ -63,16 +68,45 @@ public class Deneme {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
-        Response a = RestAssuredHelper.sendHttpRequest(
-                HttpMethod.POST,
-                baseURI + "/auth/registerUser",
-                null,
-                headers,
-                null,
-                createUserRequest,
-                HttpStatus.OK,
-                null
-        );
+
+        assertDoesNotThrow(() -> {
+            Response a = RestAssuredHelper.sendHttpRequest(
+                    HttpMethod.POST,
+                    baseURI + "/auth/registerUser",
+                    null,
+                    headers,
+                    null,
+                    createUserRequest,
+                    HttpStatus.OK,
+                    null
+            );
+        });
+
     }
 
+    @Test
+    @Story("login - get token")
+    @Description("Acquire token by using log in endpoint")
+    @Order(1)
+    public void getToken() {
+
+        AuthUserRequest authUserRequest = new AuthUserRequest(
+                "yusuf@gmail.com",
+                "123"
+        );
+
+        assertDoesNotThrow(() -> {
+            Response a = RestAssuredHelper.sendHttpRequest(
+                    HttpMethod.POST,
+                    baseURI + "/auth/generateToken",
+                    null,
+                    null,
+                    null,
+                    authUserRequest,
+                    HttpStatus.OK,
+                    TokenResponse.class
+            );
+            token = a.jsonPath().getString("token");
+        });
+    }
 }
