@@ -69,6 +69,7 @@ public class Deneme {
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
 
+        // jenkins trigger try
         assertDoesNotThrow(() -> {
             Response a = RestAssuredHelper.sendHttpRequest(
                     HttpMethod.POST,
