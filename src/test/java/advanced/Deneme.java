@@ -37,7 +37,7 @@ public class Deneme {
         Response a = RestAssuredHelper.sendHttpRequest(
                 HttpMethod.POST,
                 baseURI + "/user/getNameLastname",
-                "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLdnI5REFDMHBwM1U3Wm12YlE1VHV3PT0iLCJpYXQiOjE3MjE3Mzk3MjksImV4cCI6MTcyMTc0ODcyOX0.ZP1_Pr7VNummEIRRH_ZmvTBa8a7_tLzIjMFY9Q_O1TM",
+                "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJLdnI5REFDMHBwM1U3Wm12YlE1VHV3PT0iLCJpYXQiOjE3MjE4MDUxNTcsImV4cCI6MTcyMTgxNDE1N30.rwG015kfX3C50EvhW0s71R56jK8aPR6k8-opccfrc4U",
                 headers,
                 null,
                 null,
@@ -55,7 +55,7 @@ public class Deneme {
         CreateUserRequest createUserRequest = new CreateUserRequest(
                 "randomString",
                 "randomString",
-                "randoemStrisnssssssttxxgs" + "@gmail.com",
+                "randaaaoemStrisnssssssttxxgs" + "@gmail.com",
                 "123",
                 "Male",
                 Set.of("ROLE_USER")
@@ -71,7 +71,7 @@ public class Deneme {
                 null,
                 createUserRequest,
                 HttpStatus.OK,
-                NameLastnameResponse.class
+                null
         );
     }
 
