@@ -31,6 +31,8 @@ pipeline {
          success {
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
+            echo "Http server to represent test reports"
+            bat "python -m http.server"
         }
    }
 }
