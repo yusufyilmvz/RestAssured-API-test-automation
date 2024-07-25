@@ -28,7 +28,7 @@ pipeline {
     }
 
      post {
-         always {
+         success {
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'target/allure-report/**', allowEmptyArchive: true
         }
