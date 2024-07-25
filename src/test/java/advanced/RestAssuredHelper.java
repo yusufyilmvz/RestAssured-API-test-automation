@@ -27,13 +27,26 @@ public class RestAssuredHelper {
                                                Map<String, ?> queryParams, Object requestBody,
                                                HttpStatus expectedStatusCode, Class<T> responseClass) {
 
+        String testMethodName = "";
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length > 2) {
+            StackTraceElement caller = stackTrace[2];
+            String className = caller.getClassName();
+            String methodName = caller.getMethodName();
+            int startingIndex = methodName.indexOf('$');
+            int endIndex = methodName.lastIndexOf('$');
+            methodName = methodName.substring(startingIndex + 1, endIndex);
+
+            testMethodName = className + "." + methodName;
+        }
+
         String jsonRequestBody;
         try {
             jsonRequestBody = objectMapper.writeValueAsString(requestBody);
         } catch (JsonProcessingException e) {
             jsonRequestBody = "{}"; // Return an empty object in case of error
         }
-        String configurationMessage = String.format("Endpoint: %s, Method: %s, Headers: %s, Params: %s, Body: %s", endpoint, httpMethod, headers, queryParams, jsonRequestBody);
+        String configurationMessage = String.format("Test Method: %s, Endpoint: %s, Method: %s, Headers: %s, Params: %s, Body: %s", testMethodName, endpoint, httpMethod, headers, queryParams, jsonRequestBody);
 
         if (requestBody == null) {
             requestBody = Map.of();
