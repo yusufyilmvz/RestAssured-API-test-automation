@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+            PYTHON_HOME = 'C:/Users/GYYMM/AppData/Local/Programs/Python/Python312'
+            PATH = "${PYTHON_HOME}/bin:${env.PATH}"
+        }
+
     stages {
         stage('Checkout') {
             steps {
@@ -31,6 +36,7 @@ pipeline {
          success {
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
+            cd allure-report
             echo "Http server to represent test reports"
             bat "python -m http.server"
         }
