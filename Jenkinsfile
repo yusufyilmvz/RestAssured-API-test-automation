@@ -36,10 +36,12 @@ pipeline {
          success {
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
-            cd allure-report
-            echo "Http server to represent test reports - default port: 8080"
-            echo "After analyze report, you can cancel the build operation"
-            bat "python -m http.server 8000"
+
+            dir('allure-report') {
+                echo "Http server to represent test reports - default port: 8080"
+                echo "After analyze report, you can cancel the build operation"
+                bat "python -m http.server 8000"
+            }
         }
    }
 }
