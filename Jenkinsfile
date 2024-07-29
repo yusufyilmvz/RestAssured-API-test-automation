@@ -48,5 +48,3 @@ pipeline {
         }
    }
 }
-
-my http server should be stareted in /reports/ directory and my python script in / directory. How to set pipeline to run python script
