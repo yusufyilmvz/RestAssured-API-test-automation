@@ -41,7 +41,7 @@ pipeline {
 
             dir('allure-report') {
             script {
-                bat 'cd .. && python jenkins-http-server.py'
+                bat 'python ../jenkins-http-server.py'
             }
 //                 echo "Http server to represent test reports - default port: 8080"
 //                 echo "After analyze report, you can cancel the build operation"

@@ -27,7 +27,7 @@ class ServerThread(threading.Thread):
 
     def run(self):
         with socketserver.TCPServer(("", self.port), Handler) as self.server:
-            print(f"Serving on port {self.port}")
+            print(f"Serving on port {self.port}", flush=True)
             while not self._stop_event.is_set():
                 self.server.handle_request()
 
@@ -38,12 +38,12 @@ class ServerThread(threading.Thread):
 
 def main():
     port = find_free_port()
-    print(f"Selected port: {port}")
+    print(f"Selected port: {port}", flush=True)
     server_thread = ServerThread(port)
     server_thread.start()
-    print("HTTP server will stop in 2 minutes")
+    print("HTTP server will stop in 2 minutes", flush=True)
     time.sleep(120)
-    print("Server is stopping...")
+    print("Server is stopping...", flush=True)
     server_thread.stop()
     server_thread.join()
 
