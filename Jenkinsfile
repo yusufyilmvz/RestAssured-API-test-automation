@@ -25,15 +25,17 @@ pipeline {
             }
         }
 
-        stage('Generate Allure Report') {
-            steps {
-                bat "allure generate target/allure-results --clean -o allure-report"
-            }
-        }
+//         stage('Generate Allure Report') {
+//             steps {
+//                 bat "allure generate target/allure-results --clean -o allure-report"
+//             }
+//         }
     }
 
      post {
-         success {
+         always {
+            bat "allure generate target/allure-results --clean -o allure-report"
+
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
 
