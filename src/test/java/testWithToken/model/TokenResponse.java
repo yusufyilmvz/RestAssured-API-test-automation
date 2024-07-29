@@ -1,4 +1,4 @@
-package testWithToken;
+package testWithToken.model;
 
 public class TokenResponse {
     private String token;

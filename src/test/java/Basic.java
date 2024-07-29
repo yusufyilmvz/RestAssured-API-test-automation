@@ -1,12 +1,7 @@
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
-
-import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
@@ -73,7 +68,7 @@ public class Basic {
                 .when()
                 .post("/objects")
                 .then()
-                .statusCode(200)
+                .statusCode(404)
                 .extract()
                 .response();
 

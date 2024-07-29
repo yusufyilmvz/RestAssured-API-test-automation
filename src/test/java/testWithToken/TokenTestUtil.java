@@ -2,6 +2,9 @@ package testWithToken;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import testWithToken.model.AuthUserRequest;
+import testWithToken.model.CreateUserRequest;
+import testWithToken.model.PasswordChangeRequest;
 
 import java.util.Set;
 
@@ -67,7 +70,6 @@ public class TokenTestUtil {
     public void testGetNameLastname(String directory) {
         Response response = given()
                 .contentType(ContentType.JSON)
-                .header("Authorization", "Bearer " + token)
                 .when()
                 .post(directory)
                 .then()

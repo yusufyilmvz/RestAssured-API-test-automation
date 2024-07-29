@@ -1,4 +1,4 @@
-package testWithToken;
+package testWithToken.model;
 
 public class PasswordChangeRequest {
     private String oldPassword;

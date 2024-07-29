@@ -9,6 +9,10 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 import org.springframework.http.HttpStatus;
 import testWithToken.*;
+import testWithToken.model.AuthUserRequest;
+import testWithToken.model.CreateUserRequest;
+import testWithToken.model.NameLastnameResponse;
+import testWithToken.model.TokenResponse;
 
 import java.util.HashMap;
 import java.util.Map;

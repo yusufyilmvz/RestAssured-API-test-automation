@@ -1,4 +1,4 @@
-package testWithToken;
+package testWithToken.model;
 
 public class NameLastnameResponse {
     private String name;

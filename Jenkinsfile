@@ -38,10 +38,15 @@ pipeline {
             archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
 
             dir('allure-report') {
-                echo "Http server to represent test reports - default port: 8080"
-                echo "After analyze report, you can cancel the build operation"
-                bat "python -m http.server 8000"
+            script {
+                bat 'cd .. && python jenkins-http-server.py'
+            }
+//                 echo "Http server to represent test reports - default port: 8080"
+//                 echo "After analyze report, you can cancel the build operation"
+//                 bat "python -m http.server 8000"
             }
         }
    }
 }
+
+my http server should be stareted in /reports/ directory and my python script in / directory. How to set pipeline to run python script

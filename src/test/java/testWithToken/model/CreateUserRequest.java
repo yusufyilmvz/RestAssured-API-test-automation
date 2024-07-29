@@ -1,4 +1,4 @@
-package testWithToken;
+package testWithToken.model;
 
 import java.util.Set;
 

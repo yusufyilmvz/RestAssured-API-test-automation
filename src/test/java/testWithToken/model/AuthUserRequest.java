@@ -1,4 +1,4 @@
-package testWithToken;
+package testWithToken.model;
 
 public class AuthUserRequest {
     private String username;
