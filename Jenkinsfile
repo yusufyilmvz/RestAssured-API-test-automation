@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat '''mvn clean test -Dtest="advanced.Deneme"'''
+                bat '''mvn clean test -Dtest="advanced.ApiTester"'''
             }
         }
 

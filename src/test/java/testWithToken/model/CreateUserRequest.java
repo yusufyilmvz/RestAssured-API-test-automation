@@ -19,6 +19,9 @@ public class CreateUserRequest {
         this.authorities = authorities;
     }
 
+    public CreateUserRequest() {
+    }
+
     public String getName() {
         return name;
     }

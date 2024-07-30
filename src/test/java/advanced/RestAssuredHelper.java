@@ -2,6 +2,7 @@ package advanced;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -10,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
-import java.net.ConnectException;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -44,9 +45,9 @@ public class RestAssuredHelper {
         try {
             jsonRequestBody = objectMapper.writeValueAsString(requestBody);
         } catch (JsonProcessingException e) {
-            jsonRequestBody = "{}"; // Return an empty object in case of error
+            jsonRequestBody = "{}";
         }
-        String configurationMessage = String.format("Test Method: %s, Endpoint: %s, Method: %s, Headers: %s, Params: %s, Body: %s", testMethodName, endpoint, httpMethod, headers, queryParams, jsonRequestBody);
+        String configurationMessage = String.format("Test Method: %s, Endpoint: %s, Method: %s, Headers: %s, Params: %s, Body: %s", testMethodName, RestAssured.baseURI + endpoint, httpMethod, headers, queryParams, jsonRequestBody);
 
         if (requestBody == null) {
             requestBody = Map.of();
@@ -97,7 +98,12 @@ public class RestAssuredHelper {
             if (responseClass == null && !responseBody.isEmpty()) {
                 throw new RuntimeException();
             } else if (responseClass != null) {
-                objectMapper.readValue(responseBody, responseClass);
+                if (isJsonArray(responseBody)) {
+                    objectMapper.readValue(responseBody, objectMapper.getTypeFactory()
+                            .constructCollectionType(List.class, responseClass));
+                } else {
+                    objectMapper.readValue(responseBody, responseClass);
+                }
             }
         } catch (Exception e) {
             String responseClassName = responseClass == null ? "null" : responseClass.getSimpleName();
@@ -117,7 +123,7 @@ public class RestAssuredHelper {
                                                          Map<String, String> headers,
                                                          Map<String, ?> queryParams) {
         RequestSpecification requestSpec = given()
-                .baseUri(endpoint)
+                .baseUri(RestAssured.baseURI + endpoint)
                 .contentType(ContentType.JSON);
 
         if (token != null) {
@@ -130,6 +136,12 @@ public class RestAssuredHelper {
             requestSpec.queryParams(queryParams);
         }
         return requestSpec;
+    }
+
+    private static boolean isJsonArray(String content) throws IOException {
+        ObjectMapper tempMapper = new ObjectMapper();
+        var rootNode = tempMapper.readTree(content);
+        return rootNode.isArray();
     }
 }
 

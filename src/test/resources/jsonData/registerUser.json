@@ -1,0 +1,22 @@
+[
+  {
+    "name": "randomStrifdgddfggfdng",
+    "lastname": "randomString",
+    "username": "randomSttetresaasadasdaaatertering@gmail.com",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "randomStrifdgdsadsdadfggfdng",
+    "lastname": "randomString",
+    "username": "randomSttedsdsadasdsaaddsaaaasadastretertering@gmail.com",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  }
+]
