@@ -30,6 +30,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Feature("API Tests")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ApiTester {
@@ -45,11 +46,7 @@ public class ApiTester {
         RestAssured.filters(new AllureRestAssured());
     }
 
-    private static Stream<Arguments> testDataProvider() throws IOException {
-        return TestDataProvider.provideTestData("C:\\Users\\GYYMM\\IdeaProjects\\restAssuredTry\\src\\test\\resources\\registerUser.json", CreateUserRequest.class);
-    }
-
-//    @Test
+    //    @Test
     @Story("Verify POST request")
     @Description("Validate POST request functionality with JWT token")
 //    @ParameterizedTest
@@ -73,36 +70,32 @@ public class ApiTester {
     }
 
 
-    @Test
     @Story("Verify Register request")
     @Description("Validate Register request functionality without JWT token")
-    public void testWithoutToken() {
-        List<CreateUserRequest> users = JsonFileReader.readJsonFromFile(JsonFile.REGISTER_USER, CreateUserRequest.class);
+    @ParameterizedTest
+    @MethodSource("advanced.data.TestDataProvider#createUserRequestProvider")
+    public void testWithoutToken(CreateUserRequest createUserRequest) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
 
-        users.forEach(user -> {
-            user.setUsername(RandomString.getAlphaNumericString(6) + "@gmail.com");
-            assertDoesNotThrow(() -> {
-                Response a = RestAssuredHelper.sendHttpRequest(
-                        HttpMethod.POST,
-                        UserEndpoint.REGISTER,
-                        null,
-                        headers,
-                        null,
-                        user,
-                        HttpStatus.OK,
-                        null
-                );
-            });
+        createUserRequest.setUsername(RandomString.getAlphaNumericString(6) + "@gmail.com");
+        assertDoesNotThrow(() -> {
+            Response a = RestAssuredHelper.sendHttpRequest(
+                    HttpMethod.POST,
+                    UserEndpoint.REGISTER,
+                    null,
+                    headers,
+                    null,
+                    createUserRequest,
+                    HttpStatus.OK,
+                    null
+            );
         });
-
-
 
     }
 
-//    @Test
+    //    @Test
     @Story("login - get token")
     @Description("Acquire token by using log in endpoint")
     @Order(1)
