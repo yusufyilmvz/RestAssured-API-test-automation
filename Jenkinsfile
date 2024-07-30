@@ -41,14 +41,24 @@ pipeline {
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: '*-allure-report/**', allowEmptyArchive: true
 
-            dir('allure-report') {
+//             dir('allure-report') {
+
+                bat '''
+                @echo off
+                for /d /r %%d in (*allure-report) do (
+                    cd /d "%%d"
+                    echo Now in directory: %%d
+                    REM Further actions within the directory can be added here
+                    exit /b
+                )
+                '''
             script {
                 bat 'python ../jenkins-http-server.py'
             }
 //                 echo "Http server to represent test reports - default port: 8080"
 //                 echo "After analyze report, you can cancel the build operation"
 //                 bat "python -m http.server 8000"
-            }
+//             }
         }
    }
 }
