@@ -1,6 +1,7 @@
 package advanced.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import testWithToken.model.AuthUserRequest;
 import testWithToken.model.CreateUserRequest;
 
 import java.util.List;
@@ -16,6 +17,11 @@ public class TestDataProvider {
 
     public static Stream<CreateUserRequest> createUserRequestProvider() {
         List<CreateUserRequest> users = JsonFileReader.readJsonFromFile(JsonFile.REGISTER_USER, CreateUserRequest.class);
+        return users.stream();
+    }
+
+    public static Stream<AuthUserRequest> loginProvider() {
+        List<AuthUserRequest> users = JsonFileReader.readJsonFromFile(JsonFile.LOGIN, AuthUserRequest.class);
         return users.stream();
     }
 }

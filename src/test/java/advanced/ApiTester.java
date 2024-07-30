@@ -1,8 +1,5 @@
 package advanced;
 
-import advanced.data.JsonFile;
-import advanced.data.JsonFileReader;
-import advanced.data.TestDataProvider;
 import advanced.endpoint.UserEndpoint;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -12,7 +9,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.http.HttpStatus;
 import testWithToken.RandomString;
@@ -21,12 +17,8 @@ import testWithToken.model.CreateUserRequest;
 import testWithToken.model.NameLastnameResponse;
 import testWithToken.model.TokenResponse;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -46,11 +38,9 @@ public class ApiTester {
         RestAssured.filters(new AllureRestAssured());
     }
 
-    //    @Test
+    @Test
     @Story("Verify POST request")
     @Description("Validate POST request functionality with JWT token")
-//    @ParameterizedTest
-//    @MethodSource("testDataProvider")
     public void testWithToken() {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
@@ -99,14 +89,9 @@ public class ApiTester {
     @Story("login - get token")
     @Description("Acquire token by using log in endpoint")
     @Order(1)
-
-    public void getToken() {
-
-        AuthUserRequest authUserRequest = new AuthUserRequest(
-                "yusuf@gmail.com",
-                "123"
-        );
-
+    @ParameterizedTest
+    @MethodSource("advanced.data.TestDataProvider#loginProvider")
+    public void getToken(AuthUserRequest authUserRequest) {
         assertDoesNotThrow(() -> {
             Response a = RestAssuredHelper.sendHttpRequest(
                     HttpMethod.POST,
