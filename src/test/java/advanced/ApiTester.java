@@ -17,9 +17,6 @@ import testWithToken.model.CreateUserRequest;
 import testWithToken.model.NameLastnameResponse;
 import testWithToken.model.TokenResponse;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -42,15 +39,12 @@ public class ApiTester {
     @Story("Verify POST request")
     @Description("Validate POST request functionality with JWT token")
     public void testWithToken() {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        headers.put("Accept", "application/json");
         assertDoesNotThrow(() -> {
             Response a = RestAssuredHelper.sendHttpRequest(
                     HttpMethod.POST,
                     UserEndpoint.GET_NAME_LASTNAME,
                     token,
-                    headers,
+                    null,
                     null,
                     null,
                     HttpStatus.OK,
@@ -65,17 +59,13 @@ public class ApiTester {
     @ParameterizedTest
     @MethodSource("advanced.data.TestDataProvider#createUserRequestProvider")
     public void testWithoutToken(CreateUserRequest createUserRequest) {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        headers.put("Accept", "application/json");
-
         createUserRequest.setUsername(RandomString.getAlphaNumericString(6) + "@gmail.com");
         assertDoesNotThrow(() -> {
             Response a = RestAssuredHelper.sendHttpRequest(
                     HttpMethod.POST,
                     UserEndpoint.REGISTER,
                     null,
-                    headers,
+                    null,
                     null,
                     createUserRequest,
                     HttpStatus.OK,
