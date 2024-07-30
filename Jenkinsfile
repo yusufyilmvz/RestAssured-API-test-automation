@@ -42,6 +42,7 @@ pipeline {
             archiveArtifacts artifacts: '*-allure-report/**', allowEmptyArchive: true
 
 //             dir('allure-report') {
+            script {
 
                 bat '''
                 @echo off
@@ -52,7 +53,6 @@ pipeline {
                     exit /b
                 )
                 '''
-            script {
                 bat 'python ../jenkins-http-server.py'
             }
 //                 echo "Http server to represent test reports - default port: 8080"
