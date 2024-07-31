@@ -25,6 +25,12 @@ pipeline {
             }
         }
 
+        stage('Forever Dependency') {
+            steps {
+                bat 'npm install -g http-server forever'
+            }
+        }
+
 //         stage('Generate Allure Report') {
 //             steps {
 //                 bat "allure generate target/allure-results --clean -o allure-report"
@@ -36,7 +42,8 @@ pipeline {
          always {
             bat '''for /d /r %%d in (*allure-report) do rd /s /q "%%d"'''
 
-            bat "allure generate target/allure-results --clean -o %date:~10,4%-%date:~7,2%-%date:~4,2%-%time:~1,1%-%time:~3,2%-%time:~6,2%-allure-report"
+//             bat "allure generate target/allure-results --clean -o %date:~10,4%-%date:~7,2%-%date:~4,2%-%time:~1,1%-%time:~3,2%-%time:~6,2%-allure-report"
+            bat "allure generate target/allure-results --clean -o allure-report"
 
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: '*-allure-report/**', allowEmptyArchive: true
@@ -44,20 +51,23 @@ pipeline {
 //             dir('allure-report') {
             script {
 
-                bat '''
-                @echo off
-                for /d /r %%d in (*allure-report) do (
-                    cd /d "%%d"
-                    echo Now in directory: %%d
-                    forever start http-server.js
-                )
-                '''
+//                 bat '''
+//                 @echo off
+//                 for /d /r %%d in (*allure-report) do (
+//                     cd /d "%%d"
+//                     echo Now in directory: %%d
+//
+//                 )
+//                 '''
+                   bat "forever stop 0"
+                   bat "forever stop 0"
+                   bat "forever start http-server.js"
 //                 bat 'python ../jenkins-http-server.py'
             }
 //                 echo "Http server to represent test reports - default port: 8080"
 //                 echo "After analyze report, you can cancel the build operation"
 //                 bat "python -m http.server 8000"
-//             }
+            }
         }
    }
 }
