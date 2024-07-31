@@ -49,7 +49,7 @@ pipeline {
                 for /d /r %%d in (*allure-report) do (
                     cd /d "%%d"
                     echo Now in directory: %%d
-                    python ../jenkins-http-server.py
+                    forever start http-server.js
                 )
                 '''
 //                 bat 'python ../jenkins-http-server.py'

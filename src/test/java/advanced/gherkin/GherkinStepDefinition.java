@@ -56,7 +56,6 @@ public class GherkinStepDefinition {
     @And("the response body should be of type {string}")
     public void the_response_body_should_be_of_type(String responseType) {
         responseClass = getResponseClass(responseType);
-        System.out.println();
     }
 
     private Class<?> getResponseClass(String className) {
