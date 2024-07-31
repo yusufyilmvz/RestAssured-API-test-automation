@@ -59,8 +59,8 @@ pipeline {
 //
 //                 )
 //                 '''
-                   bat "forever stop 0"
-                   bat "forever stop 0"
+//                    bat "forever stop 0"
+//                    bat "forever stop 0"
                    bat "forever start http-server.js"
 //                 bat 'python ../jenkins-http-server.py'
             }
