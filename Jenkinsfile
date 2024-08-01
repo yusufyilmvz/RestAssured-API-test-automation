@@ -21,7 +21,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat '''mvn clean test -Dtest="advanced.ApiTester"'''
+                bat '''mvn clean test -Dtest="advanced.ApiTester,advanced.gherkin.GherkinTester"'''
             }
         }
     }
@@ -36,7 +36,7 @@ pipeline {
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
             archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
 
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'allure-report', reportFiles: 'index.html', reportName: 'Allure Report', reportTitles: '', useWrapperFileDirectly: true])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'allure-report', reportFiles: 'index.html', reportName: 'Allure Report (Cucumber included)', reportTitles: '', useWrapperFileDirectly: true])
             }
         }
    }
