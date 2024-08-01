@@ -46,24 +46,26 @@ pipeline {
             bat "allure generate target/allure-results --clean -o allure-report"
 
             archiveArtifacts artifacts: 'logs/*.log', allowEmptyArchive: true
-            archiveArtifacts artifacts: '*-allure-report/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
+
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'allure-report', reportFiles: 'index.html', reportName: 'Allure Report', reportTitles: '', useWrapperFileDirectly: true])
 
 //             dir('allure-report') {
-            script {
-
-//                 bat '''
-//                 @echo off
-//                 for /d /r %%d in (*allure-report) do (
-//                     cd /d "%%d"
-//                     echo Now in directory: %%d
+//             script {
 //
-//                 )
-//                 '''
-//                    bat "forever stop 0"
-//                    bat "forever stop 0"
-                   bat "forever start http-server.js"
-//                 bat 'python ../jenkins-http-server.py'
-            }
+// //                 bat '''
+// //                 @echo off
+// //                 for /d /r %%d in (*allure-report) do (
+// //                     cd /d "%%d"
+// //                     echo Now in directory: %%d
+// //
+// //                 )
+// //                 '''
+// //                    bat "forever stop 0"
+// //                    bat "forever stop 0"
+//                    bat "forever start http-server.js"
+// //                 bat 'python ../jenkins-http-server.py'
+//             }
 //                 echo "Http server to represent test reports - default port: 8080"
 //                 echo "After analyze report, you can cancel the build operation"
 //                 bat "python -m http.server 8000"
