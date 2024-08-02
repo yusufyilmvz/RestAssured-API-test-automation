@@ -21,7 +21,8 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat '''mvn clean test -Dtest="advanced.ApiTester,advanced.gherkin.GherkinTester"'''
+                bat '''mvn clean test -Dtest="advanced.ApiTester"'''
+                bat '''mvn test -Dtest="advanced.gherkin.GherkinTest"'''
             }
         }
     }
