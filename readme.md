@@ -24,7 +24,7 @@ This project uses Java and various tools to automate and report API tests. The t
 
 ## Test Reporting
 - **Allure**: Allure is used to present test reports visually.
-    - ** Pre-operations should be done for using allure. Visit this website to get more detailed information ->  [Allure Website](https://allurereport.org/docs/install/)
+    - **Pre-operations should be done for using allure. Visit this website to get more detailed information ->  [Allure Website](https://allurereport.org/docs/install/)
     - **Generating Reports**: Use the following command to convert test results into Allure reports:
       ```bash
       allure generate target/allure-results --clean -o target/allure-report
@@ -43,7 +43,7 @@ This project uses Java and various tools to automate and report API tests. The t
 
 ## Setup and Running
 1. **Install Required Dependencies**: Check the `pom.xml` file in the root directory of the project and install the necessary dependencies.
-2. ** Configure system variables.
+2. **Configure system variables.
 2. **Run Tests**: Use Maven commands to run the tests.
 3. **Generate Reports**: Use Allure commands to generate test reports.
 4. **Configure Jenkins Pipeline**: Complete the pipeline configuration on Jenkins to run tests automatically.
