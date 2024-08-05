@@ -60,27 +60,19 @@ public class RestAssuredHelper {
 
         // This part sends the request according to given http method. After that, gives the response of the dent request.
         Response response;
+        RequestSpecification requestSpecification;
         try {
+            requestSpecification = requestFactory(endpoint, token, headers, queryParams, requestBody);
             response = switch (httpMethod) {
-                case GET -> givenRequestSpec(endpoint, token, headers, queryParams)
-                        .body(requestBody)
-                        .when()
+                case GET -> requestSpecification
                         .get();
-                case POST -> givenRequestSpec(endpoint, token, headers, queryParams)
-                        .body(requestBody)
-                        .when()
+                case POST -> requestSpecification
                         .post();
-                case DELETE -> givenRequestSpec(endpoint, token, headers, queryParams)
-                        .body(requestBody)
-                        .when()
+                case DELETE -> requestSpecification
                         .delete();
-                case PATCH -> givenRequestSpec(endpoint, token, headers, queryParams)
-                        .body(requestBody)
-                        .when()
+                case PATCH -> requestSpecification
                         .patch();
-                case PUT -> givenRequestSpec(endpoint, token, headers, queryParams)
-                        .body(requestBody)
-                        .when()
+                case PUT -> requestSpecification
                         .put();
                 default -> {
                     String message = "Unsupported HTTP method: " + httpMethod;
@@ -155,5 +147,14 @@ public class RestAssuredHelper {
         var rootNode = tempMapper.readTree(content);
         return rootNode.isArray();
     }
-}
 
+    private static RequestSpecification requestFactory(String endpoint,
+                              String token,
+                              Map<String, String> headers,
+                              Map<String, ?> queryParams,
+                              Object requestBody) {
+        return givenRequestSpec(endpoint, token, headers, queryParams)
+                .body(requestBody)
+                .when();
+    }
+}
