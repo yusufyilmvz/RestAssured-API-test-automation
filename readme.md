@@ -46,14 +46,14 @@ This project uses Java and various tools to automate and report API tests. The t
 ## Fake Data Generation with Faker
 - **To generate fake register data, fake-register-data-generator.py could be used.**
 - **Also a new python file could be developed with same way with fake-register-data-generator.py according to the needs.**
-  - **Usage of the file at main path:** 
-  '''bash 
+  - **Usage of the file at main path:**
+  ```bash 
   python .\fake-data-generators\fake_data.json <Number of record that will be generated> --null_probability <range is 0-1> --output <destination file with path>
-  '''
+  ```
   - **ExampleUsage of the file at main path:**
-  '''bash
+  ```bash
   python .\fake-data-generators\fake_data.json 20 --null_probability 0.2
-  '''
+  ```
 
 ## Setup and Running
 1. **Install Required Dependencies**: Check the `pom.xml` file in the root directory of the project and install the necessary dependencies. Be careful with the library versions.
