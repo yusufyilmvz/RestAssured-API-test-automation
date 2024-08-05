@@ -21,7 +21,7 @@ This project uses Java and various tools to automate and report API tests. The t
 ## Test Logging
 - **Log4j**: Log4j is used to obtain detailed logs of the tests. It facilitates monitoring every stage of the tests and diagnosing issues.
 - **Logs are configured to be separated by day. Log files older than 30 days are automatically deleted.**
-- **Logs could be accessed in logs directory. Also configuration file is in resources directory.
+- **Logs could be accessed in logs directory. Also configuration file is in resources directory.**
 
 ## Test Reporting
 - **Allure**: Allure is used to present test reports visually.
@@ -46,9 +46,14 @@ This project uses Java and various tools to automate and report API tests. The t
 ## Fake Data Generation with Faker
 - **To generate fake register data, fake-register-data-generator.py could be used.**
 - **Also a new python file could be developed with same way with fake-register-data-generator.py according to the needs.**
-- 
-- **Usage of the file at main path:** '''python .\fake-data-generators\fake_data.json <Number of record that will be generated> --null_probability <range is 0-1> --output <destination file with path>'''
-- **Usage of the file at main path:** '''python .\fake-data-generators\fake_data.json 20 --null_probability 0.2'''
+  - **Usage of the file at main path:** 
+  '''bash 
+  python .\fake-data-generators\fake_data.json <Number of record that will be generated> --null_probability <range is 0-1> --output <destination file with path>
+  '''
+  - **ExampleUsage of the file at main path:**
+  '''bash
+  python .\fake-data-generators\fake_data.json 20 --null_probability 0.2
+  '''
 
 ## Setup and Running
 1. **Install Required Dependencies**: Check the `pom.xml` file in the root directory of the project and install the necessary dependencies. Be careful with the library versions.
