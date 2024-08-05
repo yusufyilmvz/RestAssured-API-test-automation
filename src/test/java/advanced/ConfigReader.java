@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+//  Config reader class that reads configurations from config.properties file that is located in resources.
 public class ConfigReader {
 
     private static Properties properties = new Properties();

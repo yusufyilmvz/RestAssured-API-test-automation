@@ -19,12 +19,11 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
+// This class handle the Gherkin scenarios. Gets the parameters to attributes.
 public class GherkinStepDefinition {
     private final static ObjectMapper mapper = new ObjectMapper();
 
-
     private Response response;
-
     private HttpMethod httpMethod;
     private String endpoint;
     private String token;
@@ -34,6 +33,7 @@ public class GherkinStepDefinition {
     private HttpStatus expectedStatusCode;
     private Class<?> responseClass;
 
+    // To handle Given keyword scenarios. Gets the gherkin parameters as arguments.
     @Given("I send a {word} request to {string} with token {string}, headers {string}, and body {string} and query parameters {string}")
     public void i_send_a_request_to_with_token_and_headers_and_query_parameters_and_body(
             String method, String endpoint, String token, String headers,
@@ -48,31 +48,36 @@ public class GherkinStepDefinition {
         System.out.println();
     }
 
+    // To handle Then keyword scenarios. Gets the gherkin parameters as arguments.
     @Then("the response status code should be {int}")
     public void the_response_status_code_should_be(int statusCode) {
         this.expectedStatusCode = HttpStatus.valueOf(statusCode);
     }
 
+    // To handle And keyword scenarios. Gets the gherkin parameters as arguments.
     @And("the response body should be of type {string}")
     public void the_response_body_should_be_of_type(String responseType) {
         responseClass = getResponseClass(responseType);
     }
 
+    // To convert String data type to class type to acquire correct model type.
     private Class<?> getResponseClass(String className) {
         try {
             if (className.isEmpty())
                 return null;
-            return Class.forName("testWithToken.model." + className); // Adjust package as needed
+            // The directory of the models should be specified.
+            return Class.forName("testWithToken.model." + className);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException("Response class not found: " + className, e);
         }
     }
 
+    // To handle the operations that is operated after gherkin scenarios conversion.
     @After
     public void afterScenario() {
         RestAssured.baseURI = ConfigReader.getBaseUrl();
         assertDoesNotThrow(() -> {
-            Response a = RestAssuredHelper.sendHttpRequest(
+            response = RestAssuredHelper.sendHttpRequest(
                     httpMethod,
                     endpoint,
                     token,
@@ -86,6 +91,7 @@ public class GherkinStepDefinition {
 
     }
 
+    // Converts strings that provide json format to Map type.
     public static Map<String, String> convertJsonToMap(String json) throws IOException {
         return mapper.readValue(json, new TypeReference<Map<String, String>>(){});
     }

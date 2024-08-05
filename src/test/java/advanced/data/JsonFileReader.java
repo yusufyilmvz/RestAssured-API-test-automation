@@ -11,11 +11,13 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
+// Provides json data from json files.
 public class JsonFileReader {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static final Logger logger = LogManager.getLogger(RestAssuredHelper.class);
 
+    // To read json data from file(s).
     public static <T> List<T> readJsonFromFile(String filePath, Class<T> entityClass) {
         try {
             String content = new String(Files.readAllBytes(Paths.get(filePath)));
@@ -37,6 +39,7 @@ public class JsonFileReader {
         }
     }
 
+    // Auxiliary method that checks the json format contains array format or not.
     private static boolean isJsonArray(String content) throws IOException {
         ObjectMapper tempMapper = new ObjectMapper();
         var rootNode = tempMapper.readTree(content);
