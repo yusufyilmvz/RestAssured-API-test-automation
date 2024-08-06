@@ -23,14 +23,14 @@ public class RestAssuredHelper {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     // Main test method that gets required parameters for testing operation.
-    // in case fail, trows error and logs the problem in test.
-    // in case success, returns the response and logs test information.
+    // In case fail, throws error and logs the problem in test.
+    // In case success, returns the response and logs test information.
     public static <T> Response sendHttpRequest(HttpMethod httpMethod, String endpoint,
                                                String token, Map<String, String> headers,
                                                Map<String, ?> queryParams, Object requestBody,
                                                HttpStatus expectedStatusCode, Class<T> responseClass) {
 
-        // This part is used to acquire the name of the method that is call this method.
+        // This part is used to acquire the name of the method that calls this method.
         String testMethodName = "";
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace.length > 2) {

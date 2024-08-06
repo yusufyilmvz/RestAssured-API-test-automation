@@ -79,7 +79,6 @@ public class ApiTester {
                     null
             );
         });
-
     }
 
     // This test method uses the body data from json file and test one by one.

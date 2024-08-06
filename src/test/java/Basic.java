@@ -47,10 +47,8 @@ public class Basic {
                 .extract()
                 .response(); // Extract response object
 
-        // Log the content in the response body
         System.out.println("Partially Get Response Body:");
         System.out.println(response.getBody().asString());
-
     }
 
     @Test

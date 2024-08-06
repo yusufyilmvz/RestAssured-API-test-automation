@@ -88,7 +88,6 @@ public class GherkinStepDefinition {
                     responseClass
             );
         });
-
     }
 
     // Converts strings that provide json format to Map type.
