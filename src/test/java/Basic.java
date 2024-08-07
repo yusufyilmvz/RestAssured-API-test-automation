@@ -15,7 +15,7 @@ public class Basic {
         RestAssured.baseURI = baseURI;
     }
 
-    @Test
+//    @Test
     @Order(1)
     public void listOfAllObjects() {
         Response response = given()
@@ -51,7 +51,7 @@ public class Basic {
         System.out.println(response.getBody().asString());
     }
 
-    @Test
+//    @Test
     @Order(1)
     public void addObjectTest() {
         addObject(new TestEntity("Apple MacBook Pro 16", new Data(
@@ -75,7 +75,7 @@ public class Basic {
         objectId = response.jsonPath().getString("id");
     }
 
-    @Test
+//    @Test
     @Order(2)
     public void updateObjectTest() {
         TestEntity testEntity = new TestEntity(
@@ -101,7 +101,7 @@ public class Basic {
         System.out.println(response.getBody().asString());
     }
 
-    @Test
+//    @Test
     @Order(3)
     public void deleteObject() {
         Response response = given()

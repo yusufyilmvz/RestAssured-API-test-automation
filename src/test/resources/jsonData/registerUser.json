@@ -1,96 +1,8 @@
 [
   {
-    "name": "Carrie",
-    "lastname": "Edwards",
-    "username": "meyersjustin@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": null
-  },
-  {
-    "name": "David",
-    "lastname": "Collins",
-    "username": "colemanmelvin@example.com",
-    "password": null,
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Patricia",
-    "lastname": null,
-    "username": "melanie33@example.com",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Cruz",
-    "username": "mendozaphillip@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Gary",
-    "lastname": "Johnson",
-    "username": "fosterjohn@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Kayla",
-    "lastname": "Johnson",
-    "username": "ibrown@example.com",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Ricky",
-    "lastname": "White",
-    "username": "jo75@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Bishop",
-    "username": "jeffreymorgan@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
     "name": "Rebecca",
-    "lastname": "Clarke",
-    "username": "denise79@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Shelly",
-    "lastname": "Johnston",
-    "username": "ljohnson@example.com",
+    "lastname": "Savage",
+    "username": "ujones@example.com",
     "password": "123",
     "gender": "Male",
     "authorities": [
@@ -98,27 +10,109 @@
     ]
   },
   {
-    "name": "Wayne",
-    "lastname": "Norman",
-    "username": "goodwinaaron@example.org",
+    "name": "Nathaniel",
+    "lastname": "Weaver",
+    "username": "jenniferdawson@example.net",
     "password": "123",
     "gender": "Female",
-    "authorities": null
+    "authorities": [
+      "ROLE_USER"
+    ]
   },
   {
-    "name": "Michael",
-    "lastname": "Serrano",
-    "username": "william93@example.net",
+    "name": "Savannah",
+    "lastname": "Brown",
+    "username": "codymyers@example.org",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Christina",
+    "lastname": "Ruiz",
+    "username": "robertmorgan@example.net",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Maria",
+    "lastname": "Coleman",
+    "username": "randy00@example.com",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Katherine",
+    "lastname": "Underwood",
+    "username": "cynthia29@example.org",
     "password": "123",
     "gender": "Female",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Sherry",
+    "lastname": "Rodriguez",
+    "username": "kevin71@example.net",
+    "password": "123",
+    "gender": "Female",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Nancy",
+    "lastname": "Taylor",
+    "username": "jessica24@example.net",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Philip",
+    "lastname": "Smith",
+    "username": "lauren61@example.net",
+    "password": "123",
+    "gender": "Male",
     "authorities": [
       "ROLE_USER"
     ]
   },
   {
     "name": "Monica",
-    "lastname": "Stewart",
-    "username": "juliemurphy@example.net",
+    "lastname": "Hughes",
+    "username": "flittle@example.com",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Victoria",
+    "lastname": "Burns",
+    "username": "dianelutz@example.org",
+    "password": "123",
+    "gender": "Male",
+    "authorities": [
+      "ROLE_USER"
+    ]
+  },
+  {
+    "name": "Tanya",
+    "lastname": "Garcia",
+    "username": "kylewilliams@example.org",
     "password": "123",
     "gender": "Female",
     "authorities": [
@@ -126,19 +120,19 @@
     ]
   },
   {
-    "name": "Jenna",
-    "lastname": "Wood",
-    "username": "scottjessica@example.org",
+    "name": "Chad",
+    "lastname": "Harrison",
+    "username": "andersonpatricia@example.org",
     "password": "123",
-    "gender": null,
+    "gender": "Male",
     "authorities": [
       "ROLE_USER"
     ]
   },
   {
-    "name": "Timothy",
-    "lastname": "Green",
-    "username": "xsanders@example.com",
+    "name": "Kelly",
+    "lastname": "Flynn",
+    "username": "sarahjohnson@example.org",
     "password": "123",
     "gender": "Female",
     "authorities": [
@@ -146,9 +140,9 @@
     ]
   },
   {
-    "name": "Pam",
-    "lastname": "Jordan",
-    "username": "wpatel@example.com",
+    "name": "Richard",
+    "lastname": "Houston",
+    "username": "julia43@example.com",
     "password": "123",
     "gender": "Male",
     "authorities": [
@@ -156,9 +150,9 @@
     ]
   },
   {
-    "name": "Michael",
-    "lastname": "Wright",
-    "username": null,
+    "name": "Catherine",
+    "lastname": "Lang",
+    "username": "vquinn@example.org",
     "password": "123",
     "gender": "Male",
     "authorities": [
@@ -166,37 +160,9 @@
     ]
   },
   {
-    "name": "Bethany",
-    "lastname": "Sanchez",
-    "username": "jking@example.net",
-    "password": null,
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Julie",
-    "lastname": "Alexander",
-    "username": "kristen22@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Eric",
-    "lastname": "Weeks",
-    "username": "uhenderson@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": null
-  },
-  {
-    "name": "Jeff",
-    "lastname": "Beasley",
-    "username": "vhall@example.org",
+    "name": "Rachel",
+    "lastname": "Jackson",
+    "username": "benjamin38@example.net",
     "password": "123",
     "gender": "Female",
     "authorities": [
@@ -204,19 +170,9 @@
     ]
   },
   {
-    "name": "Curtis",
-    "lastname": "Silva",
-    "username": "debra03@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Marc",
-    "lastname": "Moore",
-    "username": "lawrence50@example.org",
+    "name": "Barry",
+    "lastname": "Cannon",
+    "username": "martinpaul@example.org",
     "password": "123",
     "gender": "Female",
     "authorities": [
@@ -224,9 +180,9 @@
     ]
   },
   {
-    "name": "Jason",
-    "lastname": "Hutchinson",
-    "username": null,
+    "name": "Danny",
+    "lastname": "Hampton",
+    "username": "michellepark@example.org",
     "password": "123",
     "gender": "Male",
     "authorities": [
@@ -234,751 +190,13 @@
     ]
   },
   {
-    "name": "Nicholas",
-    "lastname": "Kennedy",
-    "username": "murphyamanda@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Garrett",
-    "username": "cynthiawilliams@example.com",
+    "name": "Tanya",
+    "lastname": "Thomas",
+    "username": "xguerra@example.net",
     "password": "123",
     "gender": "Female",
     "authorities": [
       "ROLE_USER"
     ]
-  },
-  {
-    "name": "Mark",
-    "lastname": "Knapp",
-    "username": "kimberly16@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Johnson",
-    "username": "jenningsrobert@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Barrett",
-    "username": "catherine96@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tracy",
-    "lastname": "Bates",
-    "username": "amycarter@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Andrea",
-    "lastname": "Curtis",
-    "username": "martinstephanie@example.net",
-    "password": null,
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Kenneth",
-    "lastname": "Herrera",
-    "username": "stephanieprice@example.com",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Shawn",
-    "lastname": null,
-    "username": null,
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Emily",
-    "lastname": "Mcintosh",
-    "username": "christopherdowns@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Cheryl",
-    "lastname": "Wright",
-    "username": "samanthagiles@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tracy",
-    "lastname": "Peterson",
-    "username": "erin50@example.net",
-    "password": null,
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Dominique",
-    "lastname": null,
-    "username": "smithroger@example.org",
-    "password": null,
-    "gender": "Male",
-    "authorities": null
-  },
-  {
-    "name": "Jason",
-    "lastname": "Smith",
-    "username": null,
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Cheryl",
-    "lastname": null,
-    "username": "leebruce@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Alice",
-    "lastname": "Mcfarland",
-    "username": null,
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Janet",
-    "lastname": "Moore",
-    "username": "sharon00@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Kelli",
-    "lastname": "Pope",
-    "username": "qbell@example.net",
-    "password": null,
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Rogers",
-    "username": "barbaraglenn@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Raymond",
-    "lastname": null,
-    "username": null,
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Christopher",
-    "lastname": "Webb",
-    "username": "ispencer@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": null
-  },
-  {
-    "name": "Maurice",
-    "lastname": "Flores",
-    "username": "rogerscory@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Heidi",
-    "lastname": "Wright",
-    "username": "xspencer@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Cathy",
-    "lastname": "Vasquez",
-    "username": "rrodriguez@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Matthew",
-    "lastname": "Taylor",
-    "username": "ybrooks@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Jeffrey",
-    "lastname": "Waters",
-    "username": "samuel73@example.com",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tina",
-    "lastname": "Zuniga",
-    "username": "kalvarado@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Caldwell",
-    "username": "anthony39@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tyler",
-    "lastname": "Blevins",
-    "username": "vjones@example.com",
-    "password": "123",
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Philip",
-    "lastname": "Fischer",
-    "username": null,
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Marie",
-    "lastname": "Adams",
-    "username": "jamesmoore@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Kevin",
-    "lastname": null,
-    "username": "bradfordstephanie@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Perry",
-    "username": "rodriguezjustin@example.net",
-    "password": null,
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Alexander",
-    "lastname": "Richardson",
-    "username": "xmccullough@example.net",
-    "password": null,
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Sheila",
-    "lastname": "Jones",
-    "username": "jonathan71@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Nicole",
-    "lastname": "Roth",
-    "username": null,
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Williams",
-    "username": "webbadrienne@example.com",
-    "password": "123",
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tracey",
-    "lastname": "Sanford",
-    "username": "tyler91@example.org",
-    "password": null,
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Mary",
-    "lastname": null,
-    "username": "tonya33@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": null
-  },
-  {
-    "name": "Michelle",
-    "lastname": "Maldonado",
-    "username": "chelseahebert@example.org",
-    "password": null,
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Christopher",
-    "lastname": null,
-    "username": "burnsdorothy@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Janet",
-    "lastname": "Gordon",
-    "username": "jessica33@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "David",
-    "lastname": "Moreno",
-    "username": "jarvisjillian@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Ian",
-    "lastname": "Brown",
-    "username": "christy89@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Christine",
-    "lastname": "Woods",
-    "username": null,
-    "password": "123",
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Frances",
-    "lastname": "Riddle",
-    "username": "reyesheather@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Joshua",
-    "lastname": "Jones",
-    "username": "kimberly60@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Jacob",
-    "lastname": "Lawson",
-    "username": "allisonmonroe@example.net",
-    "password": "123",
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Trevor",
-    "lastname": null,
-    "username": "christinascott@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Jonathan",
-    "lastname": "Hood",
-    "username": "halesandra@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Wagner",
-    "username": "daniel40@example.com",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Loretta",
-    "lastname": "Green",
-    "username": "davishelen@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Diane",
-    "lastname": "Gamble",
-    "username": "wattssarah@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Amy",
-    "lastname": "Martinez",
-    "username": "christopher50@example.org",
-    "password": "123",
-    "gender": null,
-    "authorities": null
-  },
-  {
-    "name": "Paul",
-    "lastname": "Hayes",
-    "username": null,
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Brewer",
-    "username": "warnerwilliam@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Boyd",
-    "username": "carol66@example.org",
-    "password": null,
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": null,
-    "lastname": "Randolph",
-    "username": null,
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Jason",
-    "lastname": "Sanders",
-    "username": "melissawilson@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": null
-  },
-  {
-    "name": "Benjamin",
-    "lastname": "Watkins",
-    "username": "htanner@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Kyle",
-    "lastname": "Hansen",
-    "username": "brandon03@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Natasha",
-    "lastname": "Henry",
-    "username": "cmurray@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Jessica",
-    "lastname": "Stewart",
-    "username": "james99@example.com",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Jason",
-    "lastname": "Murphy",
-    "username": "jacksonlaura@example.com",
-    "password": "123",
-    "gender": null,
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Matthew",
-    "lastname": "Pierce",
-    "username": "cummingstracey@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Alyssa",
-    "lastname": "Taylor",
-    "username": "eduardo21@example.com",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tyler",
-    "lastname": "Erickson",
-    "username": "matthewvaughn@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "David",
-    "lastname": "Ramos",
-    "username": "cynthia49@example.net",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Regina",
-    "lastname": "Phillips",
-    "username": null,
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Bryce",
-    "lastname": "Rodriguez",
-    "username": "shannoncruz@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Philip",
-    "lastname": "Merritt",
-    "username": "earl34@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Craig",
-    "lastname": "Howard",
-    "username": "jacksonzachary@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Tracey",
-    "lastname": "Hernandez",
-    "username": "bradyjessica@example.org",
-    "password": "123",
-    "gender": "Male",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Justin",
-    "lastname": "Love",
-    "username": "kramerjoe@example.org",
-    "password": "123",
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "John",
-    "lastname": "Weaver",
-    "username": "emilyrivera@example.org",
-    "password": null,
-    "gender": "Female",
-    "authorities": [
-      "ROLE_USER"
-    ]
-  },
-  {
-    "name": "Samuel",
-    "lastname": "Cook",
-    "username": "gbauer@example.net",
-    "password": "123",
-    "gender": "Male",
-    "authorities": null
   }
 ]

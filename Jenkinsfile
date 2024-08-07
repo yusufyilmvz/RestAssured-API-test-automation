@@ -19,6 +19,20 @@ pipeline {
                 bat '''mvn test -Dtest="advanced.gherkin.GherkinTest"'''
             }
         }
+        stage('Build and Test') {
+                    steps {
+                        bat '''mvn clean test -Dtest="advanced.ApiTester"'''
+                        bat '''mvn test -Dtest="advanced.gherkin.GherkinTest"'''
+                    }
+                }
+
+        stage('Docker Image Build') {
+              agent any
+              steps {
+                sh 'mvn clean install'
+                sh 'docker build -t yusufyilmvz/api-test-automation:latest .'
+              }
+            }
     }
 
      post {

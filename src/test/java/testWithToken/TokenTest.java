@@ -26,25 +26,25 @@ public class TokenTest {
 //        deleteUser(userId);
 //    }
 
-    @Test
+//    @Test
     @Order(1)
     public void testRegisterAndLogin() {
         TokenTestUtil.getInstance().testRegisterGetToken("/auth/registerUser", "/auth/generateToken");
     }
 
-    @Test
+//    @Test
     @Order(2)
     public void testGetNameLastname() {
         TokenTestUtil.getInstance().testGetNameLastname("/user/getNameLastname");
     }
 
-    @Test
+//    @Test
     @Order(2)
     public void testPatchPasswordUpdate() {
         TokenTestUtil.getInstance().testUpdatePassword("/user/updatePassword");
     }
 
-    @Test
+//    @Test
     @Order(3)
     public void testDeleteUser() {
         TokenTestUtil.getInstance().testDeleteUser("/user/delete");

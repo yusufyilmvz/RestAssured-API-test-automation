@@ -63,5 +63,5 @@ This project uses Java and various tools to automate and report API tests. The t
 4. **Configure Jenkins Pipeline**: Complete the pipeline configuration on Jenkins to run tests automatically.
 
 ## Contact
-- [Project Developer](mailto:yilmazyusuf010@example.com)
+- [Project Developer](mailto:yilmazyusuf010@gmail.com)
 - [Project Page](https://github.com/yusufyilmvz/RestAssured-API-test-automation)
