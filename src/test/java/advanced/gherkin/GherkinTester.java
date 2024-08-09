@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "advanced.gherkin",
         plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
-
 )
 public class GherkinTester {
 }
